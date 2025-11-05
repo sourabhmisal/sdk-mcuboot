@@ -1,0 +1,26 @@
+cat > .gitcliff.toml << 'EOF'
+[changelog]
+header = "# MCUboot Submodule Changelog"
+body = "Changes in the MCUboot dependency will be listed below."
+footer = ""
+
+[git]
+conventional_commits = true       # still parse feat/fix if present
+filter_commits = false            # include commits without type prefixes
+tag_pattern = "v[0-9]*"
+
+[commit_types]
+feat     = { header = "Features" }
+fix      = { header = "Fixes" }
+perf     = { header = "Performance" }
+refactor = { header = "Refactors" }
+docs     = { header = "Docs" }
+chore    = { header = "Chores", hidden = true }
+ci       = { header = "CI", hidden = true }
+test     = { header = "Tests", hidden = true }
+build    = { header = "Build", hidden = true }
+default  = { header = "Other Changes", hidden = false }
+
+[remote]
+url = "https://github.com/sourabhmisal/sdk-mcuboot"
+EOF
